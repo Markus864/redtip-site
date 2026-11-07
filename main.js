@@ -314,7 +314,22 @@
         if (!reduce) { form.classList.remove('shake'); void form.offsetWidth; form.classList.add('shake'); }
         return;
       }
-      status.textContent = 'Online booking is not open yet, so this was not sent. Please call (843) 633-1794 and we will get you set up.';
+      const endpoint = form.dataset.endpoint;
+      const fallback = 'Please call (843) 633-1794 or email hello@redtipautomation.com and we will get you set up.';
+      if (!endpoint) { status.textContent = 'Online booking is not open yet, so this was not sent. ' + fallback; return; }
+      const btn = form.querySelector('[type="submit"]');
+      const data = new URLSearchParams(new FormData(form));
+      data.set('page', location.pathname);
+      btn.disabled = true; status.textContent = 'Sending...';
+      fetch(endpoint, { method: 'POST', body: data })
+        .then((r) => r.json())
+        .then((res) => {
+          if (!res.ok) throw new Error(res.error || 'failed');
+          form.reset();
+          status.textContent = 'Thanks, we got it. Markus will call you back.';
+        })
+        .catch(() => { status.textContent = 'That did not go through. ' + fallback; })
+        .finally(() => { btn.disabled = false; });
     });
   }
 })();

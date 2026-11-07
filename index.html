@@ -89,8 +89,8 @@
     <h2 id="demo-h" class="h-big">Call it yourself</h2>
     <p class="lead">Our demo line is the same AI front desk we build for you. Call it, pick a business, and try to trip it up: ask for a price, book a time, say it's an emergency, switch to Spanish.</p>
     
-    <a class="demo-num" href="#book">Demo number coming soon</a>
-    <p class="demo-note">Answers 24/7 and texts you a summary after the call.</p>
+    <a class="demo-num" href="tel:+18432782264">(843) 278-2264</a>
+    <p class="demo-note">Answers 24/7. The businesses are samples, so nothing really gets booked.</p>
   </div>
   <div class="call rv" data-ui>
     <div class="call-pick" role="group" aria-label="Pick a business for the demo">
@@ -332,12 +332,13 @@
 
 <section class="book" id="book" data-ink="#ffffff" data-tip="#ffe600" aria-labelledby="book-h">
   
-  <form class="coupon rv" id="book-form" action="#book" method="post" novalidate>
+  <form class="coupon rv" id="book-form" action="#book" method="post" novalidate data-endpoint="">
     <div class="cp-say">
       <h2 id="book-h" class="h-mid">Book your call</h2>
       <p>Tell us where the jobs are slipping away. Markus will call you back, run the free audit on your business and walk you through what we'd build and what it costs.</p>
     </div>
     <div class="cp-fields">
+      <div hidden aria-hidden="true"><label for="f-website">Leave this empty</label><input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
       <div class="f"><label for="f-name">Your name</label><input id="f-name" name="name" type="text" autocomplete="name" required><p class="err" id="e-name"></p></div>
       <div class="f"><label for="f-biz">Business name</label><input id="f-biz" name="company" type="text" autocomplete="organization" required><p class="err" id="e-biz"></p></div>
       <div class="f"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required><p class="err" id="e-phone"></p></div>
