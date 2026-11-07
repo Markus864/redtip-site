@@ -48,6 +48,8 @@ h1,h2,h3,.h-stair,.dw-word,.out-num,.price,.foot-mail,.mark,.counts b{font-weigh
 .top.hide{transform:translateY(-120%)}
 .logo{display:flex;align-items:flex-end;gap:8px;text-decoration:none}
 .logo .mark{font-size:30px}
+.logo-svg{display:block;height:34px;width:auto}
+.lg-tip{fill:var(--tip,var(--red));transition:fill .3s ease}
 .logo-sub{font-size:var(--step-small);font-weight:700;line-height:1}
 .top nav{display:flex;gap:26px;margin-left:auto;font-size:var(--step-small);font-weight:700}
 .top nav a{text-decoration:none;position:relative;padding:8px 0}
@@ -484,6 +486,7 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:8px;bac
 @media (max-width:760px){
   .top{padding:12px var(--m);gap:12px}
   .logo .mark{font-size:26px}
+  .logo-svg{height:28px}
   .hero{padding:96px var(--m) 0;display:block;min-height:auto}
   .sh-sun{width:120vw;height:120vw;right:-50vw;top:auto;bottom:-10vw;max-width:none;max-height:none}
   .shapes .sh-sq{display:none}
